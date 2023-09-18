@@ -12,6 +12,8 @@ App NodeJS de démo
 
 Pour créer un environnement de review : créer une branche et une pull request dans GitHub.
 
-Pour envoyer en preprod: merger une PR qui a un [titre conventionnel](https://www.conventionalcommits.org/en/v1.0.0/#summary). Cela créera une release via les GitHub actions, release qui déclenchera une mise en prod automatiquement.
+Pour envoyer en preprod, merger sur master.
+
+Pour envoyer en prod, merger des [commits conventionnels](https://www.conventionalcommits.org/en/v1.0.0/#summary) sur master, ce qui créera une release via les GitHub actions / [semantic release](https://github.com/cycjimmy/semantic-release-action) puis déclenchera une mise en prod automatiquement.
 
 Notre documentation tech : https://socialgouv.github.io/support/docs/standards/developpement
