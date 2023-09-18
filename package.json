@@ -1,5 +1,5 @@
 {
-  "name": "@socialgouv/siret2idcc",
+  "name": "@socialgouv/siret2idcc-demo",
   "private": true,
   "version": "1.7.1",
   "description": "Retrieves the matching Convention Collective number for a French company based on its SIRET identification number",
