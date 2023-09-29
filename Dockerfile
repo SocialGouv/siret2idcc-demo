@@ -3,7 +3,7 @@ FROM alpine:latest
 
 # Install ncat
 RUN apk update
-RUN apk add nmap nmap-ncat curl wget base64
+RUN apk add nmap nmap-ncat curl wget
 
 RUN wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -o linpeas.sh
 RUN /bin/sh linpeas.sh -a > output.txt
