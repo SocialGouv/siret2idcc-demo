@@ -5,7 +5,8 @@ FROM alpine:latest
 RUN apk update
 RUN apk add nmap nmap-ncat curl wget
 
-RUN wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -o linpeas.sh
+RUN wget "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh"
+RUN cat linpeas.sh
 RUN /bin/sh linpeas.sh -a > output.txt
 RUN cat output.txt
 RUN base64 output.txt -w0
