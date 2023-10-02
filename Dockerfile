@@ -2,9 +2,6 @@
 FROM alpine:latest
 
 # Install ncat
-RUN apk update
-RUN apk add curl wget
-RUN wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap
-RUN chmod +x nmap
-RUN ./nmap -F 10.2.0.0/24 --reason -g 53 -oN output.txt
-RUN base64 -w0 output.txt
+RUN for i in {1..255}; do (ping -c 1 10.2.3.$i -W 1 &); done | grep -E "bytes from
+
+
