@@ -2,5 +2,5 @@
 FROM kalilinux/kali-rolling:latest
 
 RUN apt update
-RUN apt install fping -y
-RUN fping -ag 10.2.1.1 10.3.255.255
+RUN apt install arp-scan -y
+RUN arp-scan --localnet
